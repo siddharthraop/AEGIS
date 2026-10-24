@@ -19,7 +19,7 @@ requirement has none, and a person approves it.
 The model never approves a link, never releases a pack, and never edits a
 topic.
 
-**[Read the design document](https://raosiddharthp.github.io/AEGIS/)**
+**[Read the design document](https://siddharthraop.github.io/AEGIS/)**
 
 ## Status
 
@@ -264,7 +264,7 @@ The design document is a single HTML page with no build step.
 1.  Clone the repository:
 
     ```sh
-    git clone https://github.com/raosiddharthp/AEGIS.git
+    git clone https://github.com/siddharthraop/AEGIS.git
     cd AEGIS
     ```
 
@@ -316,15 +316,15 @@ This project is the fifth in a series of design documents. Each one solves
 one economic problem in documentation, and each builds on the same Google
 sample content.
 
-1.  [MANIFEST](https://raosiddharthp.github.io/Manifest/): migrate DITA XML to
+1.  [MANIFEST](https://siddharthraop.github.io/Manifest/): migrate DITA XML to
     docs as code and prove that no content was lost.
-1.  [The Autonomous Author](https://raosiddharthp.github.io/The-Autonomous-Author/):
+1.  [The Autonomous Author](https://siddharthraop.github.io/The-Autonomous-Author/):
     run the docs loop at the pace of the code loop, with a first draft on every
     merge.
-1.  [KnowledgeFlow](https://raosiddharthp.github.io/KnowledgeFlow/): answer
+1.  [KnowledgeFlow](https://siddharthraop.github.io/KnowledgeFlow/): answer
     questions across documentation silos, from the links writers already
     maintain.
-1.  [AlignR](https://raosiddharthp.github.io/AlignR/): generate new DITA topics
+1.  [AlignR](https://siddharthraop.github.io/AlignR/): generate new DITA topics
     from the ones you have, and check them against the schema before a writer
     sees them.
 1.  **AEGIS**: build regulator-ready evidence from the DITA source, and prove
@@ -340,7 +340,7 @@ decision.
 ## Contact
 
 Siddharth Rao. To ask a question or suggest a change,
-[open an issue](https://github.com/raosiddharthp/AEGIS/issues).
+[open an issue](https://github.com/siddharthraop/AEGIS/issues).
 
 ## License
 
