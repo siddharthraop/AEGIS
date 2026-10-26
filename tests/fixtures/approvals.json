@@ -1,0 +1,806 @@
+{
+ "generated": "2026-10-26T00:00:00Z",
+ "corpus_commit": "fixture",
+ "repo": "siddharthraop/dita-corpus",
+ "codeowners": [
+  [
+   "*",
+   "@siddharthraop"
+  ],
+  [
+   "/gemma/",
+   "@siddharthraop"
+  ]
+ ],
+ "files": {
+  "gemma/evidence/gemma3-evaluation.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "github-actions[bot]",
+     "name": "bot",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma3-implementation.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma3-inputs-outputs.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma3-intended-use.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma3-licence.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma3-limitations.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "siddharthraop",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma3-overview.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma3-preprocessing.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma3-safety.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "direct-push",
+   "pr": null,
+   "pr_url": null,
+   "pr_author": null,
+   "approvers": []
+  },
+  "gemma/evidence/gemma3-training-data.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-best-practices.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-ethics-risks.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-evaluation.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-inputs-outputs.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-intended-use.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-licence.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-limitations.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-overview.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-preprocessing.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-safety.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/evidence/gemma4-training-data.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/filters/authority.ditaval": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/filters/downstream.ditaval": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/filters/internal.ditaval": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/gemma-scheme.ditamap": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/gemma.ditamap": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/keys/gemma-keys.ditamap": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-1a.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-1b.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-1c.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-1d.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-1e.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-1f.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-2a.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-2b.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-2c.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-2d.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xi-2e.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-1a.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-1b.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-1c.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-1d.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-1e.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-1f.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-1g.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-1h.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-2a.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-2b.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/aia-xii-2c.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/nist-govern-1-6.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/nist-map-2-2.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/nist-measure-2-8.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  },
+  "gemma/requirements/nist-measure-2-9.dita": {
+   "commit": "fixture00001",
+   "date": "2026-10-26",
+   "via": "pull-request",
+   "pr": 1,
+   "pr_url": "https://github.com/siddharthraop/dita-corpus/pull/1",
+   "pr_author": "github-actions[bot]",
+   "approvers": [
+    {
+     "login": "siddharthraop",
+     "name": "Siddharth Rao",
+     "at": "2026-10-26"
+    }
+   ]
+  }
+ }
+}

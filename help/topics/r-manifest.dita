@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="r-manifest" xml:lang="en-US">
+  <title>Pack contents and the manifest</title>
+  <shortdesc>The files in a pack, and the fields of <filepath>manifest.json</filepath>.</shortdesc>
+  <refbody>
+    <properties>
+      <prophead><proptypehd>Item</proptypehd><propvaluehd>What it holds</propvaluehd></prophead>
+      <property><proptype><filepath>documentation/</filepath></proptype><propvalue>DITA-OT 4.4 HTML5 and PDF for this reader's profile.</propvalue></property>
+      <property><proptype><filepath>manifest.json</filepath></proptype><propvalue>The request, the source commit and profile, the status, each check's result, one item per requirement with topic, revised date, commit, approver and pull request, every finding with its decision, and a SHA-256 hash for every file.</propvalue></property>
+      <property><proptype><filepath>report.html</filepath></proptype><propvalue>The same content for a person to read.</propvalue></property>
+      <property><proptype><filepath>coverage.csv</filepath></proptype><propvalue>One row per requirement and evidence topic.</propvalue></property>
+      <property><proptype><filepath>SHA256SUMS</filepath></proptype><propvalue>Hashes of every file, including the manifest, in the format <codeph>sha256sum -c</codeph> reads.</propvalue></property>
+    </properties>
+    <section><title>Labels</title><p>A link that the model proposed carries <codeph>proposed_by: propose_mapping</codeph>
+      and the person who approved it. A sandbox pack carries <codeph>sandbox: true</codeph> and is never sealed.</p></section>
+  </refbody>
+</reference>

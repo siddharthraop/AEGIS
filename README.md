@@ -23,11 +23,23 @@ topic.
 
 ## Status
 
-Design document, version 0.1 (October 2026). This repository contains the
-design for a minimum viable product (MVP). The agent isn't built yet. The
-simulator in the design document is a scripted demo and doesn't call a model.
-Hours, costs, issue numbers, and run results in the design document are
-modeled, and they're labeled as modeled where they appear.
+Version 0.1.0 (October 2026), built and live.
+
+- **Try it:** [siddharthraop.github.io/AEGIS/try/](https://siddharthraop.github.io/AEGIS/try/). Pick a reader (AI
+  Office, downstream provider or public), see the four checks run on the Gemma 4 source in
+  [dita-corpus](https://github.com/siddharthraop/dita-corpus/tree/main/gemma), then act in a private sandbox: ask
+  Gemini to propose a link and approve or reject it, record a decision for a gap, plant an authority-only key and watch
+  `check_consistency` block the release, and download the pack with its manifest, report and SHA-256 hashes.
+- **Ask the corpus:** [siddharthraop.github.io/AEGIS/ask/](https://siddharthraop.github.io/AEGIS/ask/). Each point of
+  an answer cites a topic with its commit, revised date, approver and the requirements it answers.
+- **Help:** [online help](https://siddharthraop.github.io/AEGIS/help/) with context-sensitive help on the pages, the
+  [user guide (PDF)](https://siddharthraop.github.io/AEGIS/help/aegis-user-guide.pdf), and the
+  [developer docs](https://siddharthraop.github.io/AEGIS/dev/).
+- **Release and seal:** an [Evidence request](https://github.com/siddharthraop/AEGIS/issues/new?template=evidence-request.yml)
+  issue builds the pack and posts its report; a code owner comments `/release <reason>` to seal it.
+
+The design document's simulator is still a scripted demo; the sandbox is the working version. Hours and costs in the
+design document are modeled, and they're labeled as modeled where they appear.
 
 AEGIS is a documentation tool. It isn't legal advice, and it doesn't decide
 whether an obligation applies.
@@ -257,35 +269,34 @@ is acceptable for the MVP. Content sent on the free tier is used to improve
 Google products, so a real deployment needs the paid tier
 ([Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)).
 
-## View locally
+## Run locally
 
-The design document is a single HTML page with no build step.
+```sh
+git clone --recurse-submodules https://github.com/siddharthraop/AEGIS.git && cd AEGIS
+pip install -e '.[api,test]'
+python scripts/approval_index.py          # Git history and pull request reviews for the Gemma set
+python -m pytest -q
+uvicorn api.main:app --port 8080
+cd site && python3 -m http.server 8000    # http://localhost:8000/try/?api=http://localhost:8080
+```
 
-1.  Clone the repository:
-
-    ```sh
-    git clone https://github.com/siddharthraop/AEGIS.git
-    cd AEGIS
-    ```
-
-1.  Start a local web server:
-
-    ```sh
-    python3 -m http.server 8000
-    ```
-
-1.  In your browser, go to `http://localhost:8000`.
-
-You can also open `index.html` directly in a browser.
+See [local development](https://siddharthraop.github.io/AEGIS/dev/dev/local-development.html) for DITA-OT and the
+environment variables.
 
 ## Repository contents
 
-| File | Description |
+| Path | Description |
 | ---- | ----------- |
-| `index.html` | The design document, published with GitHub Pages |
-| `README.md` | This file |
-| `LICENSE` | MIT License |
-| `.gitignore` | Files that Git ignores |
+| `index.html` | The design document |
+| `aegis/` | Corpus reader, DITAVAL profiles, approval index, the four checks, pack builder, `propose_mapping`, Ask |
+| `api/` | FastAPI service on Cloud Run |
+| `site/` | The sandbox (`/try/`), Ask (`/ask/`) and shared assets |
+| `packs/` | The public profile, model card sections, version dates and the authority-only keys for the leak test |
+| `scripts/` | Approval index and DITA-OT pack builds |
+| `help/` | DITA help set and user guide bookmap |
+| `docs/` | Developer docs and ADRs (MyST) |
+| `tests/` | pytest suite |
+| `corpus/` | dita-corpus, as a submodule |
 
 ## Sample content and attribution
 

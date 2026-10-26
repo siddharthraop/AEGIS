@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-help-default="try">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AEGIS Evidence Sandbox</title>
+<meta name="description" content="Pick a reader, run AEGIS's four checks on the Gemma 4 DITA source, then propose links, record decisions, try the leak test and download a hashed evidence pack.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/aegis.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../">AEGIS</a>
+    <nav aria-label="Site">
+      <a href="./" aria-current="page">Try it</a>
+      <a href="../ask/">Ask the corpus</a>
+      <a href="../">Design document</a>
+      <a href="../help/">Help</a>
+      <a href="https://github.com/siddharthraop/AEGIS">Source</a>
+      <button class="help-btn" id="help-btn" type="button" aria-label="Help for this part of the page" aria-expanded="false" aria-controls="help">?</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="legal"><b>Not legal advice.</b> AEGIS is a documentation tool. It proves that evidence exists, is current, was
+    approved and is consistent. It doesn't decide whether an obligation applies, or whether evidence is legally enough.</p>
+
+  <section class="intro">
+    <h1>Build an evidence pack from the DITA source</h1>
+    <p>Pick a reader. AEGIS reads the Gemma evidence set in <a href="https://github.com/siddharthraop/dita-corpus/tree/main/gemma">dita-corpus</a>:
+      requirement topics, the relationship table that links each one to its evidence, each topic's prolog dates and keys,
+      and the pull request that approved each file. Four plain checks decide whether the pack can be released. Then act in
+      a private sandbox: propose a link with Gemini, record a decision, plant a leak, and download the pack with its
+      manifest and SHA-256 hashes. Nothing you do here changes the source; your sandbox is deleted after 7 days.</p>
+  </section>
+
+  <h2 class="sec"><span class="n">1</span> Pick a reader <button class="qmark" data-help="readers" aria-label="Help: readers">?</button></h2>
+  <div class="readers" id="readers" role="group" aria-label="Reader"></div>
+
+  <div class="statusbar">
+    <span id="status-badge" class="badge gray">loading</span>
+    <span id="source" class="meta"></span>
+  </div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <div class="checks" id="checks" aria-label="Check results"></div>
+
+  <h2 class="sec"><span class="n">2</span> Requirements and evidence <button class="qmark" data-help="requirements" aria-label="Help: requirements">?</button></h2>
+  <p class="hint">Each requirement with the topics that answer it: topic, coverage value from the trace, revised date,
+    the commit that last changed it, and the code owner who approved that commit's pull request. A requirement with no
+    evidence is a named gap. For a gap, ask Gemini to propose a link (titles and short descriptions only), then approve
+    or reject it as the information architect.</p>
+  <div class="table-wrap"><table class="req" id="req"><thead><tr><th>Requirement</th><th>Evidence in this pack</th></tr></thead><tbody></tbody></table></div>
+
+  <h2 class="sec"><span class="n">3</span> Findings and decisions <button class="qmark" data-help="decisions" aria-label="Help: decisions">?</button></h2>
+  <p class="hint">Every finding the four checks raised. As the compliance lead you can record a decision with a reason for
+    a gap, a stale topic, a missing approval or a conflicting statement: the pack then ships with that record. A leak
+    can't take a decision. It has to be fixed in the source.</p>
+  <div class="findings" id="findings"></div>
+
+  <h2 class="sec"><span class="n">4</span> Try the checks <button class="qmark" data-help="leak" aria-label="Help: leak test">?</button></h2>
+  <div class="tools">
+    <div class="tool">
+      <h3>Leak test</h3>
+      <p>Put an authority-only key reference into an evidence topic, in your sandbox only. Then pick the public or
+        downstream reader and watch <code>check_consistency</code> block the release.</p>
+      <div class="row"><select id="leak-topic" aria-label="Evidence topic"></select><select id="leak-key" aria-label="Authority-only key"></select></div>
+      <div class="row"><button class="btn bad" id="leak-on" type="button">Plant the key</button><button class="btn" id="leak-off" type="button">Remove it</button></div>
+      <p class="small" id="leak-state"></p>
+    </div>
+    <div class="tool">
+      <h3>Model update</h3>
+      <p>Move the Gemma 4 version date, as a new release would. <code>check_currency</code> flags topics revised before it
+        that state values as text; a topic that holds only key references stays current if its keys changed in an approved commit.</p>
+      <div class="row"><input id="mu-date" type="date" aria-label="New version date" value="2026-08-15"></div>
+      <div class="row"><button class="btn" id="mu-on" type="button">Simulate the update</button><button class="btn" id="mu-off" type="button">Clear it</button></div>
+      <p class="small" id="mu-state"></p>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">5</span> Build and download <button class="qmark" data-help="build" aria-label="Help: build">?</button></h2>
+  <div class="build">
+    <div>
+      <div id="build-why" class="small"></div>
+      <div id="build-hash" class="meta"></div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="build" type="button">Build the pack</button>
+      <button class="btn" id="reset" type="button">Reset my sandbox</button>
+    </div>
+  </div>
+  <p class="hint" style="margin-top:8px">The zip holds the DITA-OT 4.4 output (HTML5 and PDF) built in CI with this reader's
+    DITAVAL profile, <code>manifest.json</code>, <code>report.html</code>, <code>coverage.csv</code> and <code>SHA256SUMS</code>.
+    A sandbox pack is hashed but never sealed.</p>
+
+  <h2 class="sec"><span class="n">6</span> The real flow <button class="qmark" data-help="release" aria-label="Help: release">?</button></h2>
+  <ol class="flow">
+    <li><b>Request</b>An issue names the reader, opened in the AEGIS repository.</li>
+    <li><b>Checks and build</b>A workflow runs the four checks and builds the pack with DITA-OT.</li>
+    <li><b>Report</b>The report is posted on the issue for review.</li>
+    <li><b>Release</b>The compliance lead (here, Siddharth) comments <code>/release</code>.</li>
+    <li><b>Seal</b>The pack is hashed, stored in Cloud Storage with a retention policy, and registered.</li>
+  </ol>
+  <div class="findings" id="register" style="margin-top:12px"></div>
+</main>
+
+<footer class="wrap foot">
+  <p>Sample content adapted from the Gemma 4 and Gemma 3 model cards and the Gemma overview on Google AI for Developers
+    under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and modified. Requirement topics paraphrase
+    Regulation (EU) 2024/1689 and NIST AI 100-1. A portfolio project by Siddharth Rao; not affiliated with or endorsed by
+    Google. Proposals go to the Gemini API free tier with requirement text and topic titles only.</p>
+</footer>
+
+<aside class="helpp" id="help" aria-hidden="true" aria-labelledby="help-title">
+  <button class="btn close" id="help-close" type="button">Close</button>
+  <h2 id="help-title">Help</h2>
+  <p id="help-short"></p>
+  <ol id="help-steps"></ol>
+  <div id="help-related"></div>
+  <p><a id="help-open" href="../help/" target="_blank" rel="noopener">Open the full help topic</a> ·
+    <a href="../help/aegis-user-guide.pdf" target="_blank" rel="noopener">User guide (PDF)</a></p>
+</aside>
+<div class="toast" id="toast" hidden></div>
+<script src="../assets/config.js"></script>
+<script src="../assets/help.js"></script>
+<script src="try.js"></script>
+</body>
+</html>

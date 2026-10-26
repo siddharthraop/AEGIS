@@ -1,0 +1,11 @@
+# Model version dates for check_currency. An evidence topic is current when it was revised on or after the date of
+# the model version it describes. Each date comes from sources/sources.yaml in dita-corpus.
+models:
+  gemma-4:
+    name: Gemma 4
+    version_date: "2026-07-08"
+    basis: "Gemma models overview, page_updated 2026-07-08 (sources.yaml: gemma-overview), the earliest page that documents Gemma 4"
+  gemma-3:
+    name: Gemma 3
+    version_date: "2025-04-09"
+    basis: "Gemma 3 model card, page_updated 2025-04-09 (sources.yaml: gemma3-card)"

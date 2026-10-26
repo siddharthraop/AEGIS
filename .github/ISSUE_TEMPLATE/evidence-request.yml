@@ -1,0 +1,22 @@
+name: Evidence request
+description: Ask AEGIS to build an evidence pack for one reader. A code owner releases it with /release.
+title: "Evidence request: "
+labels: [evidence-request]
+body:
+  - type: markdown
+    attributes:
+      value: AEGIS runs the four checks on the Gemma 4 source in dita-corpus, builds the pack with DITA-OT and posts the report here. AEGIS is a documentation tool, not legal advice.
+  - type: dropdown
+    id: reader
+    attributes:
+      label: Reader
+      options:
+        - AI Office (authority pack)
+        - Downstream provider (downstream pack)
+        - Public (model card)
+    validations: {required: true}
+  - type: input
+    id: from
+    attributes:
+      label: Who asked
+      placeholder: "for example: AI Office request of 20 October"

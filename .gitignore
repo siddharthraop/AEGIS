@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+build/
+data/approvals.json
+out/
+_site/
+.pytest_cache/

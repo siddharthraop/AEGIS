@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="aegis-help" xml:lang="en-US">
+  <title>AEGIS Help</title>
+  <topicmeta><shortdesc>How to read an evidence pack in AEGIS, act in the sandbox, build a pack and ask the corpus.</shortdesc></topicmeta>
+  <mapref href="keys/aegis-keys.ditamap" processing-role="resource-only"/>
+  <topicref href="topics/gs-overview.dita"/>
+  <topichead navtitle="Use the sandbox">
+    <topicref href="topics/t-pick-reader.dita"/>
+    <topicref href="topics/t-read-requirements.dita"/>
+    <topicref href="topics/t-propose-link.dita"/>
+    <topicref href="topics/t-record-decision.dita"/>
+    <topicref href="topics/t-leak-test.dita"/>
+    <topicref href="topics/t-build-pack.dita"/>
+    <topicref href="topics/t-release-pack.dita"/>
+  </topichead>
+  <topicref href="topics/t-ask.dita"/>
+  <topichead navtitle="Reference">
+    <topicref href="topics/r-checks.dita"/>
+    <topicref href="topics/r-manifest.dita"/>
+    <topicref href="topics/r-glossary.dita"/>
+  </topichead>
+  <topicref href="topics/ts-problems.dita"/>
+  <topicref href="topics/rn-0-1-0.dita"/>
+  <reltable id="help-reltable">
+    <relheader><relcolspec type="concept"/><relcolspec type="task"/><relcolspec type="reference"/></relheader>
+    <relrow><relcell><topicref href="topics/gs-overview.dita"/></relcell><relcell><topicref href="topics/t-pick-reader.dita"/><topicref href="topics/t-read-requirements.dita"/></relcell><relcell><topicref href="topics/r-checks.dita"/></relcell></relrow>
+    <relrow><relcell/><relcell><topicref href="topics/t-propose-link.dita"/><topicref href="topics/t-record-decision.dita"/><topicref href="topics/t-leak-test.dita"/></relcell><relcell><topicref href="topics/r-checks.dita"/></relcell></relrow>
+    <relrow><relcell/><relcell><topicref href="topics/t-build-pack.dita"/><topicref href="topics/t-release-pack.dita"/></relcell><relcell><topicref href="topics/r-manifest.dita"/></relcell></relrow>
+  </reltable>
+</map>

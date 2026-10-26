@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="gs-overview" xml:lang="en-US">
+  <title>What <keyword keyref="product"/> does</title>
+  <shortdesc><keyword keyref="product"/> builds an evidence pack from a DITA source and proves that each requirement is
+    covered, current and approved, or names it as a gap.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="try"/><resourceid appname="aegis-app" appid="overview"/></prolog>
+  <conbody>
+    <p>Regulators, downstream providers and compliance leads read model documentation as evidence. They need each
+      statement with its version, its source and the person who approved it. A DITA source in Git already holds all
+      three. <keyword keyref="product"/> reads <xref keyref="corpus-url"/>: requirement topics, the relationship table that
+      links each requirement to its evidence, each topic's prolog dates and keys, and the pull request that approved each
+      file.</p>
+    <p>Four checks decide whether a pack can be released. They are plain code and give the same answer every time. One
+      tool calls a model: when a requirement has no evidence, <keyword keyref="model"/> proposes a link, and a person
+      approves or rejects it. The model never approves a link, releases a pack or edits a topic.</p>
+    <note type="important"><keyword keyref="product"/> is a documentation tool. It isn't legal advice, and it doesn't
+      decide whether an obligation applies or whether evidence is legally enough.</note>
+    <p>On <xref keyref="try-url"/> you act in a private sandbox. Your links, decisions and planted leaks are stored for
+      <keyword keyref="sandbox-days"/> and never change the source.</p>
+  </conbody>
+</concept>

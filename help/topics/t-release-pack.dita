@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-release-pack" xml:lang="en-US">
+  <title>Release and seal a pack</title>
+  <shortdesc>Only a code owner of the AEGIS repository can release a pack. Release seals it in Cloud Storage and writes a
+    register row.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="release"/></prolog>
+  <taskbody>
+    <steps>
+      <step><cmd>Open an <xref keyref="request-url"/> issue and choose the reader.</cmd>
+        <info><p>A workflow runs the four checks, builds the pack with DITA-OT and posts the report on the issue.</p></info></step>
+      <step><cmd>Review the report.</cmd></step>
+      <step><cmd>As the compliance lead, comment <codeph>/release</codeph> on the issue.</cmd>
+        <info><p>The workflow refuses a release from anyone who isn't a code owner, and refuses a blocked pack.</p></info></step>
+    </steps>
+    <result><p>The pack is uploaded to the evidence bucket with a retention policy, its manifest records who released it,
+      and the register shows it on the sandbox page. The proof of concept uses a short, unlocked retention policy, because a
+      locked policy can't be removed or shortened.</p></result>
+  </taskbody>
+</task>

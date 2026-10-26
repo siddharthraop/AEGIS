@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-leak-test" xml:lang="en-US">
+  <title>Try the leak test</title>
+  <shortdesc>Put an authority-only key into an evidence topic in your sandbox, and watch <codeph>check_consistency</codeph>
+    block the public and downstream packs.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="leak"/></prolog>
+  <taskbody>
+    <context><p>The authority-only keys hold placeholders, not real figures. In a real source they would hold facts that
+      only the AI Office may receive, such as training compute.</p></context>
+    <steps>
+      <step><cmd>Under <uicontrol>Leak test</uicontrol>, choose a topic and an authority-only key.</cmd></step>
+      <step><cmd>Select <uicontrol>Plant the key</uicontrol>.</cmd></step>
+      <step><cmd>Pick the <uicontrol>Public</uicontrol> or <uicontrol>Downstream provider</uicontrol> reader.</cmd>
+        <info><p>The status becomes <uicontrol>Release blocked</uicontrol> and the build is turned off. The authority pack isn't
+          blocked, because it may contain authority-only keys.</p></info></step>
+      <step><cmd>Select <uicontrol>Remove it</uicontrol> to end the test.</cmd></step>
+    </steps>
+  </taskbody>
+</task>

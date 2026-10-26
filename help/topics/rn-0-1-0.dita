@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="rn-0-1-0" xml:lang="en-US">
+  <title>Release notes: <keyword keyref="product"/> <keyword keyref="version"/></title>
+  <shortdesc>The first release that anyone can try.</shortdesc>
+  <refbody><section><ul>
+    <li>Three readers from one source: authority, downstream and public packs.</li>
+    <li>The four checks, with tests for each, including the leak test.</li>
+    <li>A private sandbox: propose a link, approve or reject it, record decisions, plant a leak, simulate a model update.</li>
+    <li>Pack download with the DITA-OT output, manifest, report, coverage table and SHA-256 hashes.</li>
+    <li>Release and seal by issue comment, for a code owner.</li>
+    <li>The Ask page: answers from the evidence corpus with checked quotes.</li>
+  </ul></section>
+  <section><title>Not in this release</title><p>Uploading your own requirement set, the NIST AI RMF pack, a BigQuery register and dashboards.</p></section></refbody>
+</reference>

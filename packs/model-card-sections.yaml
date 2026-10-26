@@ -1,0 +1,17 @@
+# Requirement set for the public pack. The AI Act sets no format for a public model card, so AEGIS checks the
+# sections that the published Gemma 4 model card has, matched by each evidence topic's evidence-subject.
+# These are documentation requirements, not legal ones.
+framework: model-card
+title: Public model card sections
+sections:
+  - {id: card.overview, subject: overview, title: "Model overview and architecture"}
+  - {id: card.inputs-outputs, subject: inputs-outputs, title: "Inputs and outputs"}
+  - {id: card.intended-use, subject: intended-use, title: "Intended use"}
+  - {id: card.licence, subject: licence, title: "Licence"}
+  - {id: card.training-data, subject: training-data, title: "Training data"}
+  - {id: card.preprocessing, subject: preprocessing, title: "Data preprocessing"}
+  - {id: card.evaluation, subject: evaluation, title: "Evaluation"}
+  - {id: card.safety, subject: safety, title: "Safety"}
+  - {id: card.limitations, subject: limitations, title: "Limitations"}
+  - {id: card.ethics-risks, subject: ethics-risks, title: "Ethics and risks"}
+  - {id: card.best-practices, subject: best-practices, title: "Best practices"}

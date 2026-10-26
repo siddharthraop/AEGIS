@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="r-glossary" xml:lang="en-US">
+  <title>Glossary</title>
+  <shortdesc>Terms used on the <keyword keyref="product"/> pages.</shortdesc>
+  <refbody><section><dl>
+    <dlentry><dt>Evidence pack</dt><dd>The files built for one reader: documentation, manifest, report and hashes.</dd></dlentry>
+    <dlentry><dt>Requirement topic</dt><dd>A DITA reference topic that states one requirement, its legal source and a key such as <codeph>aia.xi-2d</codeph>.</dd></dlentry>
+    <dlentry><dt>Evidence topic</dt><dd>A documentation topic, such as a model card section, that answers a requirement.</dd></dlentry>
+    <dlentry><dt>Relationship table</dt><dd>The DITA <xmlelement>reltable</xmlelement> that links each requirement to its evidence.</dd></dlentry>
+    <dlentry><dt>DITAVAL profile</dt><dd>A file that keeps or removes content by <xmlatt>audience</xmlatt> and <xmlatt>product</xmlatt> at build time.</dd></dlentry>
+    <dlentry><dt>Gap</dt><dd>A requirement with no evidence topic in the pack.</dd></dlentry>
+    <dlentry><dt>Leak</dt><dd>Authority-only content in a build for a reader who must not get it.</dd></dlentry>
+    <dlentry><dt>Sandbox</dt><dd>Your private overlay of links, decisions and tests, kept for <keyword keyref="sandbox-days"/>. It never changes the source.</dd></dlentry>
+  </dl></section></refbody>
+</reference>

@@ -1,0 +1,47 @@
+# Check the live pages the way a visitor uses them: pages load, CORS allows them, each reader runs, the leak test
+# blocks the public pack, a pack downloads with matching hashes, and Ask answers its samples.
+name: live-check
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [deploy-api, pages]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      SITE: https://siddharthraop.github.io/AEGIS
+      API: https://aegis-api-622389218685.us-central1.run.app
+      O: "Origin: https://siddharthraop.github.io"
+    steps:
+      - name: Pages
+        run: |
+          sleep 30
+          for p in / /try/ /ask/ /help/ /help/csh.json /help/aegis-user-guide.pdf /dev/; do
+            echo "::notice title=Page $p::$(curl -s -o /dev/null -w '%{http_code}' "$SITE$p")"
+          done
+          echo "::notice title=CORS::$(curl -s -D - -o /dev/null -H "$O" "$API/api/health" | grep -i '^access-control-allow-origin' | tr -d '\r')"
+      - name: Sandbox
+        run: |
+          SID="live-check-$(date +%s)-0001"
+          for r in authority downstream public; do
+            echo "::notice title=Reader $r::$(curl -s -m 60 -H "$O" "$API/api/run?reader=$r&sid=$SID" | jq -c '{status, covered: .summary.covered, of: .summary.requirements, approved: .summary.approved, findings: (.findings|length)}')"
+          done
+          curl -s -X POST "$API/api/leak" -H 'Content-Type: application/json' -H "$O" \
+            -d "{\"sid\":\"$SID\",\"reader\":\"public\",\"topic\":\"gemma4-training-data\",\"key\":\"gemma-4-train-compute\"}" | jq -c '{status}' > leak.json
+          code=$(curl -s -o /dev/null -w '%{http_code}' "$API/api/pack?reader=public&sid=$SID")
+          if jq -e '.status=="blocked"' leak.json >/dev/null && [ "$code" = "409" ]; then echo "::notice title=Leak test::blocked, pack 409"; else echo "::error title=Leak test::$(cat leak.json) pack $code"; fi
+          curl -s -X POST "$API/api/leak" -H 'Content-Type: application/json' -d "{\"sid\":\"$SID\",\"reader\":\"public\"}" >/dev/null
+          curl -s -o pack.zip "$API/api/pack?reader=authority&sid=$SID"
+          mkdir p && cd p && unzip -q ../pack.zip && cd */ && sha256sum -c --quiet SHA256SUMS && echo "::notice title=Pack::$(ls | tr '\n' ' ') hashes ok"
+          curl -s -X DELETE "$API/api/sandbox?sid=$SID" >/dev/null
+      - name: Ask
+        run: |
+          for q in "Is the training compute for Gemma 4 documented anywhere?" "What licence is Gemma 4 released under?" "What does Annex XII 1(e) ask for, and is there evidence for it?"; do
+            r=$(curl -s -m 110 -X POST "$API/api/ask" -H 'Content-Type: application/json' -H "$O" -d "$(jq -n --arg q "$q" '{question:$q}')")
+            line=$(jq -r '"\(.model.name) · points \(.points|length) · dropped \(.dropped|length) · sources \([.sources[].id]|join(",")) · \(.ms) ms · \(.model.error)"' <<<"$r")
+            if [ "$(jq '.points|length' <<<"$r")" -gt 0 ]; then echo "::notice title=$q::$line"; else echo "::error title=$q::$line"; fi
+            sleep 5
+          done

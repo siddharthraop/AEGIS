@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE troubleshooting PUBLIC "-//OASIS//DTD DITA Troubleshooting//EN" "troubleshooting.dtd">
+<troubleshooting id="ts-problems" xml:lang="en-US">
+  <title>Problems and what to do</title>
+  <shortdesc>Messages you may see on the <keyword keyref="product"/> pages.</shortdesc>
+  <troublebody>
+    <condition><p>The page says the service couldn't be reached, or the first action is slow.</p></condition>
+    <troubleSolution><cause><p>The service scales to zero between visits and is starting.</p></cause>
+      <remedy><steps><step><cmd>Wait about 15 seconds and try again.</cmd></step></steps></remedy></troubleSolution>
+    <troubleSolution><cause><p>The sandbox has used its <keyword keyref="daily-cap"/> proposals for today.</p></cause>
+      <remedy><steps><step><cmd>Record a decision for the gap instead, or try again tomorrow.</cmd></step></steps></remedy></troubleSolution>
+    <troubleSolution><cause><p>Every topic shows <uicontrol>not approved</uicontrol>.</p></cause>
+      <remedy><steps><step><cmd>Read the reason on each finding.</cmd><info><p>A topic whose last change was pushed directly,
+        not merged through a reviewed pull request, fails <codeph>check_approval</codeph> until a reviewed change merges.</p></info></step></steps></remedy></troubleSolution>
+  </troublebody>
+</troubleshooting>

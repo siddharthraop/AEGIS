@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aegis"
+version = "0.1.0"
+description = "Build regulator-ready evidence from the DITA source, and prove each item is covered, current and approved."
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = ["lxml>=5", "pyyaml>=6"]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.115", "uvicorn>=0.30", "google-genai>=1.0", "google-cloud-firestore>=2.16"]
+test = ["pytest>=8", "httpx>=0.27"]
+docs = ["sphinx>=7", "myst-parser>=3", "furo"]
+
+[tool.setuptools]
+packages = ["aegis", "api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<!-- Product names and limits that the help states more than once. Change them here only. -->
+<map id="aegis-keys">
+  <title>AEGIS help keys</title>
+  <keydef keys="product"><topicmeta><keywords><keyword>AEGIS</keyword></keywords></topicmeta></keydef>
+  <keydef keys="version"><topicmeta><keywords><keyword>0.1.0</keyword></keywords></topicmeta></keydef>
+  <keydef keys="model"><topicmeta><keywords><keyword>Gemini 3.8 Flash</keyword></keywords></topicmeta></keydef>
+  <keydef keys="daily-cap"><topicmeta><keywords><keyword>20</keyword></keywords></topicmeta></keydef>
+  <keydef keys="min-confidence"><topicmeta><keywords><keyword>0.6</keyword></keywords></topicmeta></keydef>
+  <keydef keys="sandbox-days"><topicmeta><keywords><keyword>7 days</keyword></keywords></topicmeta></keydef>
+  <keydef keys="try-url" href="https://siddharthraop.github.io/AEGIS/try/" scope="external" format="html"><topicmeta><linktext>the AEGIS sandbox</linktext></topicmeta></keydef>
+  <keydef keys="ask-url" href="https://siddharthraop.github.io/AEGIS/ask/" scope="external" format="html"><topicmeta><linktext>the Ask page</linktext></topicmeta></keydef>
+  <keydef keys="repo-url" href="https://github.com/siddharthraop/AEGIS" scope="external" format="html"><topicmeta><linktext>the AEGIS repository</linktext></topicmeta></keydef>
+  <keydef keys="corpus-url" href="https://github.com/siddharthraop/dita-corpus/tree/main/gemma" scope="external" format="html"><topicmeta><linktext>the Gemma evidence set in dita-corpus</linktext></topicmeta></keydef>
+  <keydef keys="request-url" href="https://github.com/siddharthraop/AEGIS/issues/new?template=evidence-request.yml" scope="external" format="html"><topicmeta><linktext>Evidence request</linktext></topicmeta></keydef>
+</map>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<!-- Authority-only keys for the AEGIS leak test. These values are placeholders: Annex XI documentation goes to the
+     AI Office on request and isn't public, so no real figure is used. A public or downstream build that resolves
+     one of these keys is a leak, and check_consistency blocks its release. -->
+<map id="aegis-authority-keys">
+  <title>Authority-only keys (AEGIS fixture)</title>
+  <keydef keys="gemma-4-train-compute" audience="authority"><topicmeta><keywords><keyword>[authority-only placeholder: training compute]</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-4-train-energy" audience="authority"><topicmeta><keywords><keyword>[authority-only placeholder: training energy]</keyword></keywords></topicmeta></keydef>
+</map>

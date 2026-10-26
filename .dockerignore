@@ -1,0 +1,14 @@
+.git
+corpus/.git
+corpus/tpu
+corpus/nat
+corpus/api
+corpus/media
+corpus/dashboard
+tests
+docs
+help
+site
+*.docx
+*.html
+!build/packs/**

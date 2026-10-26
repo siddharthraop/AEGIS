@@ -1,0 +1,136 @@
+# The real flow. An "Evidence request" issue runs the four checks, builds the pack with DITA-OT and posts the report.
+# A code owner of this repository comments "/release <reason>" to release it: the pack is rebuilt with the reason
+# recorded for every open finding, uploaded to Cloud Storage with a retention policy, and written to the register.
+name: evidence-request
+on:
+  issues:
+    types: [opened, edited, labeled]
+  issue_comment:
+    types: [created]
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+concurrency:
+  group: evidence-${{ github.event.issue.number }}
+  cancel-in-progress: false
+env:
+  REGION: ${{ vars.GCP_REGION || 'us-central1' }}
+jobs:
+  pack:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'evidence-request') &&
+      (github.event_name == 'issues' || startsWith(github.event.comment.body, '/release'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with: {submodules: true, fetch-depth: 0}
+      - run: git -C corpus fetch -q origin main && git -C corpus checkout -q FETCH_HEAD
+      - uses: actions/setup-python@v6
+        with: {python-version: "3.12"}
+      - uses: actions/setup-java@v5
+        with: {distribution: temurin, java-version: "21"}
+      - id: dita-cache
+        uses: actions/cache@v4
+        with: {path: ~/dita-ot-4.4, key: dita-ot-4.4}
+      - if: steps.dita-cache.outputs.cache-hit != 'true'
+        run: curl -sSL -o /tmp/dita.zip https://github.com/dita-ot/dita-ot/releases/download/4.4/dita-ot-4.4.zip && unzip -q /tmp/dita.zip -d ~
+      - run: pip install -q -e '.[api]'
+      - name: Read the request
+        id: req
+        env:
+          BODY: ${{ github.event.issue.body }}
+          COMMENT: ${{ github.event.comment.body }}
+          ACTOR: ${{ github.event.comment.user.login || github.actor }}
+        run: |
+          case "$BODY" in *"AI Office"*) r=authority;; *"Downstream"*) r=downstream;; *"Public"*) r=public;; *) r=authority;; esac
+          echo "reader=$r" >> "$GITHUB_OUTPUT"
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            owners=$(grep -v '^#' .github/CODEOWNERS | tr ' ' '\n' | grep '^@' | sed 's/^@//' | sort -u)
+            if ! grep -qx "$ACTOR" <<<"$owners"; then echo "release=denied" >> "$GITHUB_OUTPUT"; else echo "release=yes" >> "$GITHUB_OUTPUT"; fi
+            reason=$(printf '%s' "$COMMENT" | head -1 | sed -E 's#^/release[[:space:]]*##')
+            { echo "reason<<EOF"; echo "${reason:-Released with the findings recorded.}"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+          fi
+      - name: Refuse a release from someone who isn't a code owner
+        if: steps.req.outputs.release == 'denied'
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} --repo "$GITHUB_REPOSITORY" --body "Release refused: @${{ github.event.comment.user.login }} isn't a code owner of this repository. Only the compliance lead can release a pack."
+          exit 1
+      - name: Approval index and DITA-OT packs
+        env: {GITHUB_TOKEN: "${{ github.token }}", DITA_HOME: /home/runner/dita-ot-4.4}
+        run: python scripts/approval_index.py && ./scripts/build_packs.sh >/dev/null
+      - name: Checks and pack
+        id: pack
+        run: |
+          set +e
+          if [ "${{ steps.req.outputs.release }}" = "yes" ]; then
+            python -m aegis.cli pack --reader "${{ steps.req.outputs.reader }}" --out out \
+              --release-by "${{ github.event.comment.user.login }}" --reason "${{ steps.req.outputs.reason }}" \
+              --request "${{ github.event.issue.html_url }}"
+          else
+            python -m aegis.cli pack --reader "${{ steps.req.outputs.reader }}" --out out
+          fi
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          [ -f out/pack.env ] && cat out/pack.env >> "$GITHUB_OUTPUT"
+          exit 0
+      - uses: actions/upload-artifact@v4
+        with: {name: evidence-pack, path: out/, retention-days: 30}
+      - uses: google-github-actions/auth@v3
+        if: steps.req.outputs.release == 'yes' && steps.pack.outputs.code == '0'
+        with:
+          project_id: ${{ vars.GCP_PROJECT }}
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SA }}
+      - uses: google-github-actions/setup-gcloud@v2
+        if: steps.req.outputs.release == 'yes' && steps.pack.outputs.code == '0'
+      - name: Seal (Cloud Storage with a retention policy, and a register row)
+        id: seal
+        if: steps.req.outputs.release == 'yes' && steps.pack.outputs.code == '0'
+        env:
+          PROJECT: ${{ vars.GCP_PROJECT }}
+          PACK_ID: ${{ steps.pack.outputs.PACK_ID }}
+          SHA: ${{ steps.pack.outputs.MANIFEST_SHA256 }}
+          STATUS: ${{ steps.pack.outputs.STATUS }}
+          BY: ${{ github.event.comment.user.login }}
+          REQUEST: ${{ github.event.issue.html_url }}
+        run: |
+          BUCKET="gs://$PROJECT-aegis-evidence"
+          if ! gcloud storage buckets describe "$BUCKET" >/dev/null 2>&1; then
+            # POC: a 1-day retention policy, not locked. A locked policy can't be removed or shortened.
+            gcloud storage buckets create "$BUCKET" --location="$REGION" --uniform-bucket-level-access \
+              --retention-period=1d --default-storage-class=STANDARD --quiet || {
+              echo "::error title=Can't create the bucket::Grant the deploy account roles/storage.admin on the project, or create $BUCKET with a 1-day retention policy."; exit 1; }
+            gcloud storage buckets update "$BUCKET" --update-labels=project=aegis --quiet || true
+          fi
+          gcloud storage cp out/$PACK_ID.zip out/manifest.json "$BUCKET/packs/$PACK_ID/" --quiet
+          OBJ="$BUCKET/packs/$PACK_ID/$PACK_ID.zip"
+          echo "object=$OBJ" >> "$GITHUB_OUTPUT"
+          python - <<PY || echo "::warning title=Register row not written::Grant the deploy account roles/datastore.user to write aegis_register."
+          import datetime, os
+          from google.cloud import firestore
+          db = firestore.Client(project=os.environ["PROJECT"])
+          db.collection("aegis_register").document(os.environ["PACK_ID"]).set({
+              "pack_id": os.environ["PACK_ID"], "object": "$OBJ", "manifest_sha256": os.environ["SHA"],
+              "status": os.environ["STATUS"], "released_by": os.environ["BY"], "request": os.environ["REQUEST"],
+              "retention": "1 day, unlocked (POC)",
+              "sealed_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")})
+          print("register row written")
+          PY
+      - name: Report on the issue
+        if: always() && steps.req.outputs.release != 'denied'
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          {
+            if [ "${{ steps.req.outputs.release }}" = "yes" ]; then
+              if [ "${{ steps.seal.outcome }}" = "success" ]; then echo "### Released and sealed by @${{ github.event.comment.user.login }}"; echo; echo "Object: \`${{ steps.seal.outputs.object }}\`"; echo
+              else echo "### Release not sealed"; echo; echo "See the workflow run for the reason."; echo; fi
+            else
+              echo "### Evidence pack ready for review"; echo
+              echo "A code owner releases it by commenting \`/release <reason>\`. The reason is recorded for every open finding."; echo
+            fi
+            cat out/summary.md 2>/dev/null || echo "The pack wasn't built; see the run."
+            echo; echo "[Run and pack artifact]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
+          } > comment.md
+          gh issue comment ${{ github.event.issue.number }} --repo "$GITHUB_REPOSITORY" --body-file comment.md
+          if [ "${{ steps.seal.outcome }}" = "success" ]; then gh issue close ${{ github.event.issue.number }} --repo "$GITHUB_REPOSITORY"; fi

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-propose-link" xml:lang="en-US">
+  <title>Propose a link with Gemini and review it</title>
+  <shortdesc>For a requirement with no evidence, <keyword keyref="model"/> proposes one topic, and you approve or reject it
+    as the information architect.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="propose"/></prolog>
+  <taskbody>
+    <context><p>The model gets only the requirement text and the titles and short descriptions of the candidate topics,
+      never their bodies. Its answer must name a topic that exists in this pack, or <codeph>none</codeph>. The public
+      sandbox allows <keyword keyref="daily-cap"/> proposals a day.</p></context>
+    <steps>
+      <step><cmd>In a gap row, select <uicontrol>Ask Gemini to propose a link</uicontrol>.</cmd></step>
+      <step><cmd>Read the proposal: the topic, the reason and the confidence.</cmd>
+        <info><p>A proposal under <keyword keyref="min-confidence"/>, or <codeph>none</codeph>, becomes a gap note instead.</p></info></step>
+      <step><cmd>Select <uicontrol>Approve as information architect</uicontrol> or <uicontrol>Reject</uicontrol>.</cmd></step>
+    </steps>
+    <result><p>An approved link counts for <codeph>check_coverage</codeph> at once. It is labelled as a sandbox link in the
+      table, the manifest and the report. In the real flow it would be a pull request to the evidence map.</p></result>
+  </taskbody>
+</task>

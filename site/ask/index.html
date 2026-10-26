@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-help-default="ask">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AEGIS Ask the Corpus</title>
+<meta name="description" content="Ask a question of the Gemma evidence corpus. Each point cites a DITA topic with its commit, revised date, approver and the requirements it answers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/aegis.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../">AEGIS</a>
+    <nav aria-label="Site">
+      <a href="../try/">Try it</a>
+      <a href="./" aria-current="page">Ask the corpus</a>
+      <a href="../">Design document</a>
+      <a href="../help/">Help</a>
+      <a href="https://github.com/siddharthraop/AEGIS">Source</a>
+      <button class="help-btn" id="help-btn" type="button" aria-label="Help for this page" aria-expanded="false" aria-controls="help">?</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="legal"><b>Not legal advice.</b> Answers describe what the sample documentation states and where it has gaps.
+    They don't say whether an obligation applies.</p>
+  <section class="intro">
+    <h1>Ask the evidence corpus</h1>
+    <p>The corpus is the Gemma evidence set in <a href="https://github.com/siddharthraop/dita-corpus/tree/main/gemma">dita-corpus</a>,
+      the source that Manifest migrates: 21 evidence topics adapted from the Gemma 4 and Gemma 3 model cards, and 26
+      requirement topics for EU AI Act Annexes XI and XII and the NIST AI RMF. Each point of an answer cites a topic, with
+      the commit that last changed it, its revised date, who approved it, and the requirements it answers in the trace.
+      Plain checks drop any point whose quote or numbers aren't in its source.</p>
+  </section>
+
+  <form id="ask" class="askf" autocomplete="off">
+    <label for="q" class="sr">Your question</label>
+    <textarea id="q" rows="2" maxlength="500" placeholder="Ask about the Gemma model documentation or the requirements"></textarea>
+    <button id="go" type="submit">Ask</button>
+  </form>
+  <div class="samples" id="samples" aria-label="Sample questions"></div>
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+
+  <section id="result" hidden>
+    <p id="summary" class="summary"></p>
+    <ol id="points" class="points"></ol>
+    <div id="notcovered" class="note" hidden></div>
+    <div id="dropped" class="dropped" hidden></div>
+    <h2 class="sec">Sources <button class="qmark" data-help="ask-sources" aria-label="Help: sources">?</button></h2>
+    <div id="sources" class="sources"></div>
+    <p id="meta" class="meta" style="margin-top:12px"></p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>Sample content adapted from the Gemma 4 and Gemma 3 model cards and the Gemma overview on Google AI for Developers
+    under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and modified. A portfolio project by
+    Siddharth Rao; not affiliated with or endorsed by Google. Questions are sent to the Gemini API free tier; don't ask
+    anything private.</p>
+</footer>
+
+<aside class="helpp" id="help" aria-hidden="true" aria-labelledby="help-title">
+  <button class="btn close" id="help-close" type="button">Close</button>
+  <h2 id="help-title">Help</h2>
+  <p id="help-short"></p>
+  <ol id="help-steps"></ol>
+  <div id="help-related"></div>
+  <p><a id="help-open" href="../help/" target="_blank" rel="noopener">Open the full help topic</a></p>
+</aside>
+<script src="../assets/config.js"></script>
+<script src="../assets/help.js"></script>
+<script src="ask.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-pick-reader" xml:lang="en-US">
+  <title>Pick a reader and read the checks</title>
+  <shortdesc>Each reader gets a pack built from the same source with its own DITAVAL profile and requirement set.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="readers"/></prolog>
+  <taskbody>
+    <steps>
+      <step><cmd>Pick <uicontrol>AI Office</uicontrol>, <uicontrol>Downstream provider</uicontrol> or <uicontrol>Public</uicontrol>.</cmd>
+        <info><p>The AI Office gets the authority pack (Annex XI, Section 1). A downstream provider gets the downstream pack
+          (Annex XII). The public gets the model card, checked against its own sections.</p></info></step>
+      <step><cmd>Read the status badge and the four check tiles.</cmd>
+        <info><p>Each tile shows how many items passed out of how many were checked.</p></info></step>
+      <step><cmd>Read the source line under the badge.</cmd>
+        <info><p>It names the corpus commit, the DITAVAL profile, the model version date and the number of topics in the build.</p></info></step>
+    </steps>
+    <result><p>The status is <uicontrol>Ready to release</uicontrol>, <uicontrol>Ready, with recorded decisions</uicontrol>,
+      <uicontrol>Needs decisions</uicontrol> or <uicontrol>Release blocked</uicontrol>.</p></result>
+  </taskbody>
+</task>

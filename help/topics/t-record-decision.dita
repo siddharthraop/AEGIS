@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-record-decision" xml:lang="en-US">
+  <title>Record a decision as the compliance lead</title>
+  <shortdesc>A gap, a stale topic, a missing approval or a conflicting statement can ship with a recorded decision and a
+    reason. A leak can't.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="decisions"/></prolog>
+  <taskbody>
+    <steps>
+      <step><cmd>Select <uicontrol>Record a decision</uicontrol> on a finding, or <uicontrol>Record one decision for all</uicontrol> for a check.</cmd></step>
+      <step><cmd>Choose <uicontrol>Release with this recorded</uicontrol> or <uicontrol>Hold the pack</uicontrol>.</cmd></step>
+      <step><cmd>Type a reason, then select <uicontrol>Save as compliance lead</uicontrol>.</cmd>
+        <info><p>A reason is required. It goes into the manifest with the date.</p></info></step>
+    </steps>
+    <result><p>When every finding has a decision and none blocks, the status becomes <uicontrol>Ready, with recorded decisions</uicontrol>.</p></result>
+  </taskbody>
+</task>

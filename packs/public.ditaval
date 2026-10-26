@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE val PUBLIC "-//OASIS//DTD DITA DITAVAL//EN" "ditaval.dtd">
+<!-- Public model card for the current model (Gemma 4): only content with no restricted audience.
+     AEGIS adds this profile; the authority and downstream profiles come from dita-corpus (gemma/filters). -->
+<val>
+  <prop att="audience" val="authority" action="exclude"/>
+  <prop att="audience" val="downstream" action="exclude"/>
+  <prop att="audience" val="internal" action="exclude"/>
+  <prop att="product" val="gemma-4" action="include"/>
+  <prop att="product" action="exclude"/>
+</val>

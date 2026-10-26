@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-build-pack" xml:lang="en-US">
+  <title>Build and download a pack</title>
+  <shortdesc>The pack is a zip with the DITA-OT output, the manifest, a report, a coverage table and SHA-256 hashes.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="build"/></prolog>
+  <taskbody>
+    <steps>
+      <step><cmd>Select <uicontrol>Build the pack</uicontrol>.</cmd><info><p>The button is off while a leak blocks release.</p></info></step>
+      <step><cmd>Open the zip and read <filepath>report.html</filepath>.</cmd></step>
+      <step><cmd>Check the hashes: run <codeph>sha256sum -c SHA256SUMS</codeph> in the pack folder.</cmd></step>
+    </steps>
+    <result><p>The <filepath>documentation</filepath> folder holds the HTML5 and PDF output that DITA-OT built in CI from
+      the corpus commit with this reader's DITAVAL profile. A sandbox pack is hashed but never sealed.</p></result>
+  </taskbody>
+</task>

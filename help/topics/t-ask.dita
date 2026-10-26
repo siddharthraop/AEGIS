@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-ask" xml:lang="en-US">
+  <title>Ask the evidence corpus</title>
+  <shortdesc>Ask a question in plain words. Each point of the answer cites a topic with its commit, date, approver and
+    the requirements it answers.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="ask"/><resourceid appname="aegis-app" appid="ask-sources"/></prolog>
+  <taskbody>
+    <steps>
+      <step><cmd>On <xref keyref="ask-url"/>, type a question or pick a sample, then select <uicontrol>Ask</uicontrol>.</cmd></step>
+      <step><cmd>Read each point and its quote.</cmd>
+        <info><p>The quote is copied word for word from the cited topic. A point whose quote or numbers aren't in the topic
+          is dropped and listed.</p></info></step>
+      <step><cmd>Read the sources.</cmd>
+        <info><p>An evidence topic lists the requirements it answers in the trace. A requirement topic lists its evidence,
+          or says it is a gap.</p></info></step>
+    </steps>
+  </taskbody>
+</task>

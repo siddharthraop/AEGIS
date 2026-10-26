@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-read-requirements" xml:lang="en-US">
+  <title>Read a requirement and its evidence</title>
+  <shortdesc>Each row traces one requirement to the topics that answer it, with the commit, date and approver of each.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="requirements"/></prolog>
+  <taskbody>
+    <steps>
+      <step><cmd>Find the requirement in the left column.</cmd><info><p>Select its ID to open the requirement topic in dita-corpus.</p></info></step>
+      <step><cmd>Read each evidence topic on the right.</cmd>
+        <info><p>The badge is the coverage value from the relationship table: stated, partly, linked or conflicting. Then the
+          topic's revised date, the commit that last changed it, and the code owner who approved its pull request.</p></info></step>
+      <step><cmd>Look for rows marked <uicontrol>gap</uicontrol>.</cmd>
+        <info><p>A gap is a requirement with no evidence topic for this model version. You can propose a link or record a decision.</p></info></step>
+    </steps>
+  </taskbody>
+</task>
