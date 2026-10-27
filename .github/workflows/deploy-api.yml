@@ -1,9 +1,7 @@
 # Build the approval index and the DITA-OT packs, build the image, prove it works, push it, deploy it, check it live.
 name: deploy-api
 on:
-  push:
-    branches: [main]
-    paths: ["aegis/**", "api/**", "packs/**", "scripts/**", "corpus", "Dockerfile", "pyproject.toml", ".github/workflows/deploy-api.yml"]
+  # Manual only. The MVP deploys with scripts/deploy.sh; this workflow needs Workload Identity Federation variables.
   workflow_dispatch:
   workflow_call:
 concurrency:

@@ -2,8 +2,9 @@
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
 <reference id="rn-0-1-0" xml:lang="en-US">
   <title>Release notes: <keyword keyref="product"/> <keyword keyref="version"/></title>
-  <shortdesc>The first release that anyone can try.</shortdesc>
+  <shortdesc>The first release that anyone can try, with a one-step page to generate and measure two packs.</shortdesc>
   <refbody><section><ul>
+    <li>The generate page: pick a system, get the authority pack and a downstream pack, and see the design's metrics measured on the run.</li>
     <li>Three readers from one source: authority, downstream and public packs.</li>
     <li>The four checks, with tests for each, including the leak test.</li>
     <li>A private sandbox: propose a link, approve or reject it, record decisions, plant a leak, simulate a model update.</li>

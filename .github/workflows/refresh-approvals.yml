@@ -1,7 +1,7 @@
-# Rebuild the approval index daily, and redeploy when a review in dita-corpus changed it.
+# Rebuild the approval index on demand, and redeploy when a review in dita-corpus changed it.
 name: refresh-approvals
 on:
-  schedule: [{cron: "17 6 * * *"}]
+  # Manual only while deploys go through scripts/deploy.sh.
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,7 +22,7 @@ jobs:
         env: {GITHUB_TOKEN: "${{ github.token }}"}
         run: |
           python scripts/approval_index.py --out now.json
-          h=$(curl -s https://aegis-api-622389218685.us-central1.run.app/api/health)
+          h=$(curl -s https://aegis-api-335536436651.us-central1.run.app/api/health)
           live="$(jq -r '.approvals.approved_files // -1' <<<"$h") $(jq -r '.corpus.commit // ""' <<<"$h")"
           now="$(jq '[.files[] | select(.approvers|length>0)] | length' now.json) $(git -C corpus rev-parse --short=12 HEAD)"
           echo "::notice title=Approved files and corpus::live $live, now $now"

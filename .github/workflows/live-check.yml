@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SITE: https://siddharthraop.github.io/AEGIS
-      API: https://aegis-api-622389218685.us-central1.run.app
+      API: https://aegis-api-335536436651.us-central1.run.app
       O: "Origin: https://siddharthraop.github.io"
     steps:
       - name: Pages

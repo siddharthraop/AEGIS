@@ -7,12 +7,13 @@
     <bookrights><copyrfirst><year>2026</year></copyrfirst><bookowner><person>Siddharth Rao</person></bookowner></bookrights></bookmeta>
   <frontmatter><booklists><toc/></booklists><mapref href="keys/aegis-keys.ditamap" processing-role="resource-only"/></frontmatter>
   <chapter href="topics/gs-overview.dita"/>
+  <chapter href="topics/t-generate-packs.dita"/>
   <chapter href="topics/t-pick-reader.dita"><topicref href="topics/t-read-requirements.dita"/></chapter>
   <chapter href="topics/t-propose-link.dita"><topicref href="topics/t-record-decision.dita"/><topicref href="topics/t-leak-test.dita"/></chapter>
   <chapter href="topics/t-build-pack.dita"><topicref href="topics/t-release-pack.dita"/></chapter>
   <chapter href="topics/t-ask.dita"/>
   <appendices>
-    <appendix href="topics/r-checks.dita"><topicref href="topics/r-manifest.dita"/></appendix>
+    <appendix href="topics/r-checks.dita"><topicref href="topics/r-metrics.dita"/><topicref href="topics/r-manifest.dita"/></appendix>
     <appendix href="topics/ts-problems.dita"/>
     <appendix href="topics/r-glossary.dita"/>
     <appendix href="topics/rn-0-1-0.dita"/>

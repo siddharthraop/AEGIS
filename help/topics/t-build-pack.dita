@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="t-build-pack" xml:lang="en-US">
-  <title>Build and download a pack</title>
+  <title>Build and download a pack in the sandbox</title>
   <shortdesc>The pack is a zip with the DITA-OT output, the manifest, a report, a coverage table and SHA-256 hashes.</shortdesc>
   <prolog><resourceid appname="aegis-app" appid="build"/></prolog>
   <taskbody>

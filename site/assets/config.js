@@ -2,6 +2,6 @@
 // site itself (the MVP at its own URL), calls are same-origin. Override for local work with ?api=http://localhost:8080
 const onPages = location.hostname.endsWith("github.io");
 window.AEGIS = {
-  api: onPages ? "https://aegis-api-622389218685.us-central1.run.app" : "",
+  api: onPages ? "https://aegis-api-335536436651.us-central1.run.app" : "",
   help: onPages ? "../help/" : "https://siddharthraop.github.io/AEGIS/help/",
 };

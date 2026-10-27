@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="t-generate-packs" xml:lang="en-US">
+  <title>Generate the authority and downstream packs</title>
+  <shortdesc>Pick an AI system and <keyword keyref="product"/> builds two evidence packs from its DITA source, then measures them.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="generate"/></prolog>
+  <taskbody>
+    <context><p>Start on <xref keyref="app-url"/>. The page runs the four checks and builds both packs in one step. You
+      don't need an account, and nothing you do changes the source.</p></context>
+    <steps>
+      <step><cmd>Under <uicontrol>Pick a system</uicontrol>, choose a system.</cmd>
+        <info><p>Only a system with an evidence set can be chosen. Today that is Gemma 4. A system without one is listed but
+          can't be selected.</p></info></step>
+      <step><cmd>Select <uicontrol>Generate packs</uicontrol>.</cmd>
+        <info><p>The first run after a quiet period can take about 15 seconds while the service starts. Later runs take
+          about a second.</p></info></step>
+      <step><cmd>Read each pack card.</cmd>
+        <info><p>The <uicontrol>Authority pack</uicontrol> is for the AI Office (Annex XI, Section 1). The
+          <uicontrol>Downstream pack</uicontrol> is for providers who build on the model (Annex XII). Each card shows a status,
+          the four check tiles (coverage, currency, approval, consistency), the requirements that have no evidence, and its
+          findings.</p></info></step>
+      <step><cmd>Select <uicontrol>Download</uicontrol> on a card to get that pack as a zip.</cmd>
+        <info><p>The card shows the manifest hash before you download. The download carries the same hash.</p></info></step>
+      <step><cmd>Read the <uicontrol>Metrics from the design</uicontrol> table under the packs.</cmd>
+        <info><p>Each row says whether the number was measured on this run, modeled in the design only, or is not part of the
+          MVP. See <xref keyref="metrics-ref"/>.</p></info></step>
+    </steps>
+    <result><p>You have two zips. Each holds the DITA-OT HTML5 and PDF output built with that reader's profile, a manifest, a
+      report, a coverage table and SHA-256 hashes. These are demonstration packs: they are hashed, but never released or sealed.</p></result>
+    <postreq><p>To act on a gap, such as asking <keyword keyref="model"/> to propose a link or recording a decision, use
+      <xref keyref="try-url"/>.</p></postreq>
+  </taskbody>
+</task>
