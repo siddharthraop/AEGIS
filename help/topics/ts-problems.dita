@@ -12,5 +12,14 @@
     <troubleSolution><cause><p>Every topic shows <uicontrol>not approved</uicontrol>.</p></cause>
       <remedy><steps><step><cmd>Read the reason on each finding.</cmd><info><p>A topic whose last change was pushed directly,
         not merged through a reviewed pull request, fails <codeph>check_approval</codeph> until a reviewed change merges.</p></info></step></steps></remedy></troubleSolution>
+    <troubleSolution><cause><p>On the generate page, <uicontrol>Approvals read 0</uicontrol> appears and the approval metrics show 0.</p></cause>
+      <remedy><steps><step><cmd>Merge the review pull requests in dita-corpus.</cmd><info><p><keyword keyref="product"/> trusts Git for approval.
+        Until a change to each evidence topic merges through a pull request approved by a code owner, no topic counts as approved.
+        The page reports this honestly. It isn't an error.</p></info></step></steps></remedy></troubleSolution>
+    <troubleSolution><cause><p>The metric for authority content in downstream output says <uicontrol>not measured</uicontrol>.</p></cause>
+      <remedy><steps><step><cmd>Check that the service has the DITA-OT output.</cmd><info><p>The scan needs the built HTML for both packs. Without it the
+        metric can't run. It also isn't reported as a pass unless the control search on the authority pack finds the content.</p></info></step></steps></remedy></troubleSolution>
+    <troubleSolution><cause><p>After a download, the message says the manifest hash differs from the one shown.</p></cause>
+      <remedy><steps><step><cmd>Select <uicontrol>Generate packs</uicontrol> again, then download.</cmd><info><p>This can happen if the service restarted onto a new corpus commit between the two steps.</p></info></step></steps></remedy></troubleSolution>
   </troublebody>
 </troubleshooting>

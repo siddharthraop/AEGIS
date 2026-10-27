@@ -9,6 +9,9 @@
   <keydef keys="daily-cap"><topicmeta><keywords><keyword>20</keyword></keywords></topicmeta></keydef>
   <keydef keys="min-confidence"><topicmeta><keywords><keyword>0.6</keyword></keywords></topicmeta></keydef>
   <keydef keys="sandbox-days"><topicmeta><keywords><keyword>7 days</keyword></keywords></topicmeta></keydef>
+  <keydef keys="app-url" href="https://aegis-api-335536436651.us-central1.run.app/" scope="external" format="html"><topicmeta><linktext>the AEGIS generate page</linktext></topicmeta></keydef>
+  <keydef keys="metrics-ref" href="../topics/r-metrics.dita"><topicmeta><linktext>Metrics from the design</linktext></topicmeta></keydef>
+  <keydef keys="t-generate-ref" href="../topics/t-generate-packs.dita"><topicmeta><linktext>Generate the authority and downstream packs</linktext></topicmeta></keydef>
   <keydef keys="try-url" href="https://siddharthraop.github.io/AEGIS/try/" scope="external" format="html"><topicmeta><linktext>the AEGIS sandbox</linktext></topicmeta></keydef>
   <keydef keys="ask-url" href="https://siddharthraop.github.io/AEGIS/ask/" scope="external" format="html"><topicmeta><linktext>the Ask page</linktext></topicmeta></keydef>
   <keydef keys="repo-url" href="https://github.com/siddharthraop/AEGIS" scope="external" format="html"><topicmeta><linktext>the AEGIS repository</linktext></topicmeta></keydef>

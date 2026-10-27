@@ -15,6 +15,11 @@
 | `open_review` | `.github/workflows/evidence-request.yml` (report on the request issue) | no |
 | `seal_pack` | `.github/workflows/evidence-request.yml` release job (Cloud Storage with retention, register row) | no |
 
+## One service
+
+`api/main.py` serves the API under `/api` and the site (`site/`) at `/`. The generate page, the sandbox and Ask are
+same-origin with the API. See [ADR 0004](../adr/0004-serve-the-site-from-the-api.md) and [the MVP flow](mvp-flow.md).
+
 ## Data flow
 
 1. CI builds the approval index (`scripts/approval_index.py`): for every file in `corpus/gemma`, the last commit, the

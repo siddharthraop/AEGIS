@@ -10,6 +10,7 @@ COPY aegis aegis
 COPY api api
 RUN pip install --no-cache-dir '.[api]' && pip uninstall -y pip
 COPY packs packs
+COPY site site
 COPY corpus/gemma corpus/gemma
 COPY data data
 COPY build/packs build/packs

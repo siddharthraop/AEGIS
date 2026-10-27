@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="r-metrics" xml:lang="en-US">
+  <title>Metrics from the design</title>
+  <shortdesc>What each metric on the generate page counts, how it is obtained, and what the design aims for.</shortdesc>
+  <prolog><resourceid appname="aegis-app" appid="metrics"/></prolog>
+  <refbody>
+    <section><p>The two packs are measured together. A <b>measured</b> number comes from this run. A <b>modeled</b> number
+      appears in the design only. <b>Not in the MVP</b> means the capability isn't built into this page.</p>
+      <simpletable relcolwidth="3* 4* 2* 1*">
+        <sthead><stentry>Metric</stentry><stentry>What it counts</stentry><stentry>Design target</stentry><stentry>Basis</stentry></sthead>
+        <strow><stentry>Requirements covered, current and approved</stentry>
+          <stentry>Requirements, across both packs, that have evidence, whose evidence topics are current for the model version, and whose last change was approved in Git.</stentry>
+          <stentry>100%, or a recorded decision for each gap</stentry><stentry>Measured</stentry></strow>
+        <strow><stentry>Evidence items with a named human approver from Git</stentry>
+          <stentry>Evidence items whose last commit merged through a pull request approved by a code owner who isn't the author or an agent.</stentry>
+          <stentry>100%</stentry><stentry>Measured</stentry></strow>
+        <strow><stentry>Values in the packs that resolve from a key</stentry>
+          <stentry>Key references that resolve, checked by <codeph>check_consistency</codeph>.</stentry>
+          <stentry>100%</stentry><stentry>Measured</stentry></strow>
+        <strow><stentry>Authority content found in downstream output</stentry>
+          <stentry>Matches for authority-only topic ids, titles and key values in the built downstream HTML. The same search runs on the authority pack as a control, so a result of 0 means the search can see the content.</stentry>
+          <stentry>0</stentry><stentry>Measured</stentry></strow>
+        <strow><stentry>Time from request to a pack ready for release</stentry>
+          <stentry>Seconds for the checks and both pack builds on the server. A person still has to review the findings.</stentry>
+          <stentry>Under 1 working day</stentry><stentry>Measured</stentry></strow>
+        <strow><stentry>People hours per pack</stentry>
+          <stentry>Not measured. The design models under 4 hours against 32 by hand.</stentry>
+          <stentry>Under 4</stentry><stentry>Modeled</stentry></strow>
+        <strow><stentry>Packs sealed with a locked policy and a manifest hash</stentry>
+          <stentry>Packs here carry a manifest hash but are never sealed. Sealing needs a human release and a locked bucket.</stentry>
+          <stentry>100%</stentry><stentry>Not in the MVP</stentry></strow>
+      </simpletable></section>
+    <section><title>Result labels</title>
+      <dl>
+        <dlentry><dt>Meets target</dt><dd>The measured value reaches the design target.</dd></dlentry>
+        <dlentry><dt>Open</dt><dd>The value is short of the target. The row's note says why, for example gaps with no recorded decision.</dd></dlentry>
+        <dlentry><dt>Fails</dt><dd>The value is worse than allowed. For the leak metric, any match is a failure.</dd></dlentry>
+      </dl></section>
+  </refbody>
+</reference>

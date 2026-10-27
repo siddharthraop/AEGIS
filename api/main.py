@@ -6,13 +6,15 @@ import re
 import threading
 import time
 from collections import deque
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from aegis import __version__
+from aegis import __version__, mvp
 from aegis.approvals import Approvals
 from aegis.ask import Asker
 from aegis.corpus import load
@@ -238,6 +240,34 @@ def register():
     return {"store": store.backend, "packs": store.register()}
 
 
+# -- the MVP flow: pick a system, get the authority pack and a downstream pack, see the metrics ----------------------
+@app.get("/api/systems")
+def systems():
+    return {"systems": mvp.SYSTEMS, "legal": LEGAL}
+
+
+@app.get("/api/mvp")
+def mvp_generate(system: str = Query(...)):
+    if mvp.system(system) is None:
+        raise HTTPException(404, "That system has no evidence set yet. Pick Gemma 4.")
+    return mvp.generate(engine, system)
+
+
+@app.get("/api/mvp/pack")
+def mvp_pack(system: str = Query(...), reader: str = Query(...)):
+    if mvp.system(system) is None:
+        raise HTTPException(404, "That system has no evidence set yet. Pick Gemma 4.")
+    if reader not in mvp.PACK_READERS:
+        raise HTTPException(400, f"Reader must be one of {', '.join(mvp.PACK_READERS)}.")
+    res = engine.run(reader)
+    if res["status"] == "blocked":
+        raise HTTPException(409, "Release blocked: " + "; ".join(f["reason"] for f in res["findings"] if not f.get("decidable")))
+    pid = mvp.mvp_pack_id(system, reader, res["source"]["commit"])
+    data, man = engine.build_zip(res, pid, sandbox=True)
+    return Response(data, media_type="application/zip", headers={
+        "Content-Disposition": f'attachment; filename="{pid}.zip"', "X-Aegis-Manifest-Sha256": man["manifest_sha256"]})
+
+
 class Ask(BaseModel):
     question: str = Field(min_length=3, max_length=500)
 
@@ -260,3 +290,10 @@ def ask(b: Ask):
     if has_key() and m is None:
         out["model"]["error"] = f"Daily limit of {ASKS_PER_DAY} model answers reached; this answer is extractive."
     return out
+
+
+# The site is served by this service too, so the whole product is one URL with no cross-origin calls. Mounted last so
+# every /api route wins. On GitHub Pages the same files are served from there and call this service by its full URL.
+SITE = Path(os.environ.get("AEGIS_SITE", Path(__file__).resolve().parent.parent / "site"))
+if SITE.is_dir():
+    app.mount("/", StaticFiles(directory=SITE, html=True), name="site")

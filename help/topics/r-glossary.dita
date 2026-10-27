@@ -5,6 +5,9 @@
   <shortdesc>Terms used on the <keyword keyref="product"/> pages.</shortdesc>
   <refbody><section><dl>
     <dlentry><dt>Evidence pack</dt><dd>The files built for one reader: documentation, manifest, report and hashes.</dd></dlentry>
+    <dlentry><dt>Authority pack</dt><dd>The pack for the AI Office and national authorities: Annex XI, Section 1.</dd></dlentry>
+    <dlentry><dt>Downstream pack</dt><dd>The pack for providers who build on the model: Annex XII.</dd></dlentry>
+    <dlentry><dt>Manifest hash</dt><dd>The SHA-256 hash of <filepath>manifest.json</filepath>. The same hash is shown on the page and in the download.</dd></dlentry>
     <dlentry><dt>Requirement topic</dt><dd>A DITA reference topic that states one requirement, its legal source and a key such as <codeph>aia.xi-2d</codeph>.</dd></dlentry>
     <dlentry><dt>Evidence topic</dt><dd>A documentation topic, such as a model card section, that answers a requirement.</dd></dlentry>
     <dlentry><dt>Relationship table</dt><dd>The DITA <xmlelement>reltable</xmlelement> that links each requirement to its evidence.</dd></dlentry>

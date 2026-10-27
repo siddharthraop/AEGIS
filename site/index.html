@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AEGIS Evidence Packs</title>
+<meta name="description" content="Pick an AI system and AEGIS builds the authority pack and a downstream pack from its DITA source, then measures them against the design's metrics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aegis.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="./">AEGIS</a>
+    <nav aria-label="Site">
+      <a href="./" aria-current="page">Generate packs</a>
+      <a href="try/">Sandbox</a>
+      <a href="ask/">Ask the corpus</a>
+      <a href="https://siddharthraop.github.io/AEGIS/help/">Help</a>
+      <a href="https://siddharthraop.github.io/AEGIS/">Design document</a>
+      <a href="https://github.com/siddharthraop/AEGIS">Source</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="legal"><b>Not legal advice.</b> AEGIS is a documentation tool. It proves that evidence exists, is current, was
+    approved and is consistent. It doesn't decide whether an obligation applies, or whether evidence is legally enough.</p>
+
+  <section class="intro">
+    <h1>Generate evidence packs for an AI system</h1>
+    <p>Pick a system. AEGIS reads its DITA source, runs four plain checks, and builds two packs from the same source:
+      the <b>authority pack</b> for the AI Office (Annex XI, Section 1) and a <b>downstream pack</b> for providers who
+      build on the model (Annex XII). Then it measures both against the design's metrics.</p>
+  </section>
+
+  <h2 class="sec"><span class="n">1</span> Pick a system</h2>
+  <div class="sysbar">
+    <label>System<select id="system" aria-label="System"></select></label>
+    <button class="btn primary big" id="go" type="button" disabled>Generate packs</button>
+  </div>
+  <p class="hint" id="sys-note" style="margin-top:8px"></p>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <div id="out" hidden>
+    <div class="statusbar"><span id="source" class="meta"></span></div>
+    <div class="callout" id="approval-note" hidden></div>
+
+    <h2 class="sec"><span class="n">2</span> Your two packs</h2>
+    <div class="packs" id="packs"></div>
+
+    <h2 class="sec"><span class="n">3</span> Metrics from the design</h2>
+    <p class="hint">Each number is labeled by how it was obtained: <b>measured</b> on this run, <b>modeled</b> in the design
+      only, or <b>not in the MVP</b>.
+      <a href="https://siddharthraop.github.io/AEGIS/help/topics/r-metrics.html">How each is measured</a>.</p>
+    <div class="table-wrap"><table class="mtable" id="metrics">
+      <thead><tr><th>Metric</th><th>Result</th><th>Design target</th><th>Basis</th></tr></thead><tbody></tbody></table></div>
+
+    <p class="hint" style="margin-top:14px">To act on a gap (ask Gemini to propose a link, record a decision, try the leak
+      test), use the <a href="try/">sandbox</a>.</p>
+  </div>
+</main>
+
+<footer class="wrap foot">
+  <p>Sample content adapted from the Gemma 4 and Gemma 3 model cards and the Gemma overview on Google AI for Developers
+    under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and modified. Requirement topics paraphrase
+    Regulation (EU) 2024/1689. A portfolio project by Siddharth Rao; not affiliated with or endorsed by Google. Packs built
+    here are demonstration packs: hashed, never released or sealed.</p>
+</footer>
+
+<div class="toast" id="toast" hidden></div>
+<script src="assets/config.js"></script>
+<script src="mvp.js"></script>
+</body>
+</html>

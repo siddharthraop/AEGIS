@@ -16,6 +16,9 @@
       approves or rejects it. The model never approves a link, releases a pack or edits a topic.</p>
     <note type="important"><keyword keyref="product"/> is a documentation tool. It isn't legal advice, and it doesn't
       decide whether an obligation applies or whether evidence is legally enough.</note>
+    <p>The quickest way to see it work is <xref keyref="app-url"/>. Pick a system and it builds the authority pack for the
+      AI Office and a downstream pack for providers who build on the model, then measures both against the design's
+      metrics. See <xref keyref="t-generate-ref"/>.</p>
     <p>On <xref keyref="try-url"/> you act in a private sandbox. Your links, decisions and planted leaks are stored for
       <keyword keyref="sandbox-days"/> and never change the source.</p>
   </conbody>
