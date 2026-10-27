@@ -153,3 +153,27 @@ def test_ask_drops_a_point_whose_quote_or_number_is_not_in_the_source():
     assert [p["text"] for p in r["points"]] == ["Gemma 3 was trained on 14 trillion tokens at 27B."]
     reasons = [d["why"] for d in r["dropped"]]
     assert any("99" in w for w in reasons) and any("word for word" in w for w in reasons)
+
+
+# -- the MVP flow ---------------------------------------------------------------------------------------------------
+def test_mvp_generates_two_packs_and_metrics():
+    from fastapi.testclient import TestClient
+    from api.main import app
+    c = TestClient(app)
+    j = c.get("/api/mvp?system=gemma-4").json()
+    assert set(j["packs"]) == {"authority", "downstream"}
+    ids = {m["id"]: m for m in j["metrics"]}
+    assert set(ids) == {"covered", "approvers", "keys", "leak", "time", "hours", "sealed"}
+    assert ids["hours"]["kind"] == "modeled" and ids["sealed"]["kind"] == "not-in-mvp"
+    assert j["results"]["authority"]["summary"]["requirements"] == 11
+    # the hash shown before download is the hash of the download
+    r = c.get("/api/mvp/pack?system=gemma-4&reader=downstream")
+    assert r.status_code == 200 and r.headers["X-Aegis-Manifest-Sha256"] == j["packs"]["downstream"]["manifest_sha256"]
+
+
+def test_mvp_rejects_unknown_system_and_reader():
+    from fastapi.testclient import TestClient
+    from api.main import app
+    c = TestClient(app)
+    assert c.get("/api/mvp?system=gemma-3").status_code == 404
+    assert c.get("/api/mvp/pack?system=gemma-4&reader=public").status_code == 400

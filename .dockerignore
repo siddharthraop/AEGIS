@@ -8,7 +8,7 @@ corpus/dashboard
 tests
 docs
 help
-site
 *.docx
 *.html
+!site/**
 !build/packs/**

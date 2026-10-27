@@ -1,0 +1,15 @@
+# gcloud run deploy --source uploads this folder. Keep build/packs and data (git-ignored, built by scripts/deploy.sh).
+.git
+corpus/.git
+corpus/tpu
+corpus/nat
+corpus/api
+corpus/media
+corpus/dashboard
+tests
+docs
+help
+*.docx
+/*.html
+__pycache__
+.pytest_cache
